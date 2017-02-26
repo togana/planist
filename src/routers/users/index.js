@@ -16,8 +16,24 @@ const list = (ctx) => {
   ctx.body = dummy;
 };
 
+// ユーザー追加
+const create = (ctx) => {
+  if (ctx.request.body.name) {
+    const id = dummy.ids[dummy.ids.length - 1] + 1;
+    // dummyの登録処理
+    dummy.ids.push(id);
+    dummy.results[id] = {
+      name: ctx.request.body.name,
+    };
+    ctx.body = { result: true };
+  } else {
+    ctx.body = { result: false };
+  }
+};
+
 // ユーザー詳細
 const show = (ctx) => {
+  console.log(ctx);
   const id = +ctx.params.id;
   if (dummy.ids.indexOf(id) !== -1) {
     ctx.body = dummy.results[id];
@@ -29,4 +45,5 @@ const show = (ctx) => {
 module.exports.init = (router) => {
   router.get('/users', list);
   router.get('/users/:id(\\d+)', show);
+  router.post('/users', create);
 };
