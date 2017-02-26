@@ -4,5 +4,18 @@
   "description": "Self-management planning service",
   "repository": "git@github.com:togana/planist.git",
   "author": "togana <o.togana@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "koa": "^2.0.1",
+    "koa-router": "next"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
 }
