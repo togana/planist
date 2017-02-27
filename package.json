@@ -6,7 +6,7 @@
   "author": "togana <o.togana@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -17,6 +17,7 @@
   "devDependencies": {
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "nodemon": "^1.11.0"
   }
 }
