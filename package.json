@@ -12,7 +12,8 @@
   "dependencies": {
     "koa": "^2.0.1",
     "koa-bodyparser": "next",
-    "koa-router": "next"
+    "koa-router": "next",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^3.16.1",

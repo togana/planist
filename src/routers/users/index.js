@@ -1,11 +1,16 @@
+const uuidV4 = require('uuid/v4');
+
 // ダミーデータ(1以上の整数をidに持つuserデータ)
 const dummy = {
-  ids: [1, 2],
+  ids: [
+    'c591c386-5360-49a7-b9b6-c168d90b1d3b',
+    '80eed615-be37-4aeb-b533-3d0b7a9ee31c',
+  ],
   results: {
-    1: {
+    'c591c386-5360-49a7-b9b6-c168d90b1d3b': {
       name: 'user1',
     },
-    2: {
+    '80eed615-be37-4aeb-b533-3d0b7a9ee31c': {
       name: 'user2',
     },
   },
@@ -19,13 +24,13 @@ const list = (ctx) => {
 // ユーザー追加
 const create = (ctx) => {
   if (ctx.request.body.name) {
-    const id = dummy.ids[dummy.ids.length - 1] + 1;
+    const id = uuidV4();
     // dummyの登録処理
     dummy.ids.push(id);
     dummy.results[id] = {
       name: ctx.request.body.name,
     };
-    ctx.body = { result: true };
+    ctx.body = { result: true, id };
   } else {
     ctx.body = { result: false };
   }
@@ -33,8 +38,7 @@ const create = (ctx) => {
 
 // ユーザー詳細
 const show = (ctx) => {
-  console.log(ctx);
-  const id = +ctx.params.id;
+  const id = ctx.params.id;
   if (dummy.ids.indexOf(id) !== -1) {
     ctx.body = dummy.results[id];
   } else {
@@ -44,6 +48,6 @@ const show = (ctx) => {
 
 module.exports.init = (router) => {
   router.get('/users', list);
-  router.get('/users/:id(\\d+)', show);
+  router.get('/users/:id', show);
   router.post('/users', create);
 };
