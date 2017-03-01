@@ -2,6 +2,7 @@ const Koa = require('koa');
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
 const routers = require('./routers');
+const models = require('./models');
 
 const app = new Koa();
 
@@ -18,4 +19,6 @@ routers.init(router);
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(3000);
+models.sequelize.sync().then(() => {
+  app.listen(3000);
+});

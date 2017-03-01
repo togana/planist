@@ -16,7 +16,6 @@
     "koa-router": "next",
     "mysql": "^2.13.0",
     "normalizr": "^3.2.2",
-    "uuid": "^3.0.1"
     "sequelize": "^3.30.2"
   },
   "devDependencies": {
