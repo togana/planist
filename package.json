@@ -7,19 +7,23 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "sequelize": "sequelize"
   },
   "dependencies": {
     "koa": "^2.0.1",
     "koa-bodyparser": "next",
     "koa-router": "next",
+    "mysql": "^2.13.0",
     "normalizr": "^3.2.2",
     "uuid": "^3.0.1"
+    "sequelize": "^3.30.2"
   },
   "devDependencies": {
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sequelize-cli": "^2.5.1"
   }
 }
